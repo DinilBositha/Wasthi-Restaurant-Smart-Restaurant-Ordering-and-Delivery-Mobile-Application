@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "179637550344",
+    "project_id": "wasthirestaurant-b6db2",
+    "storage_bucket": "wasthirestaurant-b6db2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179637550344:android:0062e38a2390feaa59c0bd",
+        "android_client_info": {
+          "package_name": "com.dinilbositha.wasthirestaurant"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuFJLdzPk_J1_VWgc_5b_Eo-6geBJ0zvQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179637550344:android:2e3911642bcbaa4a59c0bd",
+        "android_client_info": {
+          "package_name": "com.dinilbositha.wasthirestaurantadmin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuFJLdzPk_J1_VWgc_5b_Eo-6geBJ0zvQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
