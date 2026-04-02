@@ -21,6 +21,7 @@
 <img width="1080" height="2400" alt="Screenshot_20260331_213923" src="https://github.com/user-attachments/assets/c223d7f5-766a-45d2-abb4-8c6cd61f11bc" />
 <img width="1080" height="2400" alt="Screenshot_20260331_213912" src="https://github.com/user-attachments/assets/1373e1ac-617b-4c84-8f8b-2e94e8b65e3c" />
            </tr>
+</table>
 <img width="1080" height="2400" alt="Screenshot_20260331_213636" src="https://github.com/user-attachments/assets/c21a1133-76b5-4ebf-9bb9-7d71efe382ec" />
 🚀 Key Features
 Modern UI/UX: Clean design implemented using Java and XML.
