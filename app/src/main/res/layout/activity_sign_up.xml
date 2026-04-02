@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/app_logo"/>
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="@drawable/eka_bar"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="වස්ති Restaurant | Sign In"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutSignUpName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        android:layout_marginBottom="5dp"
+        style="@style/RoundedTextInputLayout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signUpName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textSize="15sp"
+            android:hint="Full Name"
+            android:inputType="textPersonName"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutSignUpEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        android:layout_marginBottom="5dp"
+        style="@style/RoundedTextInputLayout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signUpEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingStart="10dp"
+            android:textSize="15sp"
+            android:paddingEnd="10dp"
+            android:hint="Email Address"
+            android:inputType="textEmailAddress"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/layoutSignUpPassword"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:passwordToggleEnabled="true"
+    app:errorIconDrawable="@null"
+    app:errorEnabled="true"
+    android:layout_marginBottom="5dp"
+    style="@style/RoundedTextInputLayout">
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/signUpPassword"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textSize="15sp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        />
+
+</com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutSignUpRTypePassword"
+        app:errorIconDrawable="@null"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true"
+        app:errorEnabled="true"
+        android:layout_marginBottom="5dp"
+        style="@style/RoundedTextInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signUpReTypePassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingStart="10dp"
+            android:textSize="15sp"
+            android:paddingEnd="20dp"
+            android:hint="Re-Type Password"
+            android:inputType="textPassword"
+            />
+</com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/signUpRegBtn"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Register" />
+
+    <TextView
+        android:id="@+id/signUpLoginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Already have an account? Login"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:textColor="?attr/colorPrimary"/>
+</LinearLayout>

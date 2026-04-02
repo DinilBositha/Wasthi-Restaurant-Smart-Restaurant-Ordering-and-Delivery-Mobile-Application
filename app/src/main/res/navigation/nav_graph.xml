@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/cartFragment">
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.dinilbositha.wasthirestaurant.fragment.CartFragment"
+        android:label="Cart"
+        tools:layout="@layout/fragment_cart">
+
+        <action
+            android:id="@+id/action_cartFragment_to_addAddressFragment"
+            app:destination="@id/addAddressFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addAddressFragment"
+        android:name="com.dinilbositha.wasthirestaurant.fragment.AddAddressFragment"
+        android:label="Add Address"
+        tools:layout="@layout/fragment_add_address">
+
+        <action
+            android:id="@+id/action_addAddressFragment_to_cartFragment"
+            app:destination="@id/cartFragment"
+            app:popUpTo="@id/cartFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+</navigation>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+     <com.google.android.material.imageview.ShapeableImageView
+         android:id="@+id/headerProfileImage"
+         android:layout_margin="30dp"
+         android:layout_width="120dp"
+         android:layout_height="120dp"
+         android:background="@drawable/circle_shape"
+         android:scaleType="centerCrop"
+         android:layout_gravity="bottom"
+
+         app:shapeAppearanceOverlay="@style/circleImage"/>
+
+     <TextView
+         android:id="@+id/headerName"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="john perera"
+       android:gravity="center_vertical"
+       android:layout_gravity="center_vertical"
+       android:layout_marginStart="170dp"/>
+     <TextView
+         android:id="@+id/headerEmail"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:gravity="center_vertical"
+         android:layout_marginTop="30dp"
+         android:layout_gravity="center_vertical"
+         android:layout_marginStart="170dp"/>
+
+</FrameLayout>
