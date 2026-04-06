@@ -14,7 +14,6 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -31,6 +30,7 @@ import com.dinilbositha.wasthirestaurant.fragment.HomeFragment;
 import com.dinilbositha.wasthirestaurant.fragment.SearchFragment;
 import com.dinilbositha.wasthirestaurant.fragment.SettingsFragment;
 import com.dinilbositha.wasthirestaurant.model.User;
+import com.dinilbositha.wasthirestaurant.utils.NetworkUtil;
 import com.dinilbositha.wasthirestaurant.viewmodel.CartViewModel;
 import com.dinilbositha.wasthirestaurant.viewmodel.TableViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -42,8 +42,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.ListenerRegistration;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, NavigationBarView.OnItemSelectedListener {
+public class MainActivity extends BaseActivity
+implements NavigationView.OnNavigationItemSelectedListener, NavigationBarView.OnItemSelectedListener {
 
     private static final String TAG = "MainActivity";
 
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        setupNoInternetLayout();
         drawerLayout = binding.drawerLayout;
         toolbar = binding.toolbar;
         navigationView = binding.sideNavigationView;
@@ -532,7 +532,7 @@ public class MainActivity extends AppCompatActivity
         binding.logoOverlay.hideLogo(null);
     }
 
-    public void selectBottomNavItem(int itemId) {
+    public boolean selectBottomNavItem(int itemId) {
         clearNavSelections();
 
         if (itemId == R.id.bottom_nav_home) {
@@ -540,18 +540,25 @@ public class MainActivity extends AppCompatActivity
             setCheckedItems(R.id.side_nav_home, R.id.bottom_nav_home);
 
         } else if (itemId == R.id.bottom_nav_profile) {
-            if (requireLogin()) return;
+            if (requireLogin()) return false;
             loadFragment(new SettingsFragment());
             setCheckedItems(R.id.side_nav_profile, R.id.bottom_nav_profile);
 
         } else if (itemId == R.id.bottom_nav_search) {
-            if (requireLogin()) return;
+            if (requireLogin()) return false;
             loadFragment(SearchFragment.newInstance(true));
             setCheckedItems(R.id.side_nav_orders, R.id.bottom_nav_search);
 
         } else if (itemId == R.id.bottom_nav_cart) {
+
+            if (!NetworkUtil.isNetworkAvailable(this)) {
+                showNoInternetLayout();
+                return true;
+            }
+
             loadFragment(CartFragment.newInstance(true));
             setCheckedItems(R.id.side_nav_cart, R.id.bottom_nav_cart);
         }
+        return false;
     }
 }

@@ -42,6 +42,7 @@ import com.dinilbositha.wasthirestaurant.adapter.RelatedProductsAdapter;
 import com.dinilbositha.wasthirestaurant.databinding.FragmentProductDetailsBinding;
 import com.dinilbositha.wasthirestaurant.model.CartItem;
 import com.dinilbositha.wasthirestaurant.model.Product;
+import com.dinilbositha.wasthirestaurant.utils.NetworkUtil;
 import com.dinilbositha.wasthirestaurant.viewmodel.CartViewModel;
 import com.dinilbositha.wasthirestaurant.viewmodel.ProductViewModel;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -134,7 +135,13 @@ public class ProductDetailsFragment extends Fragment {
         binding.btnBack.setOnClickListener(v ->
                 requireActivity().getOnBackPressedDispatcher().onBackPressed()
         );
-
+        binding.btnRetryNetwork.setOnClickListener(v -> {
+            if (isNetworkAvailable()) {
+                hideNetworkLostBar();
+            } else {
+                showNetworkLostBar();
+            }
+        });
         setupMoreProductsRecycler();
         loadProductDetails();
     }
@@ -176,6 +183,12 @@ public class ProductDetailsFragment extends Fragment {
             binding.btnAddToCart.setText("Add to Cart");
 
             binding.btnAddToCart.setOnClickListener(v -> {
+                if (!isNetworkAvailable()) {
+                    showNetworkLostBar();
+                    return;
+                }
+
+                hideNetworkLostBar();
                 if (currentProduct != null) {
                     showVariantBottomSheet(currentProduct);
                 }
@@ -684,10 +697,52 @@ public class ProductDetailsFragment extends Fragment {
             Log.e("NotificationError", "Notification permission denied", e);
         }
     }
+    private boolean isNetworkAvailable() {
+        return NetworkUtil.isNetworkAvailable(requireContext());
+    }
 
+    private void showNetworkLostBar() {
+        if (binding == null) return;
+
+        binding.networkLostBar.setVisibility(View.VISIBLE);
+        binding.networkLostBar.setAlpha(0f);
+        binding.networkLostBar.setTranslationY(100f);
+
+        binding.networkLostBar.animate()
+                .alpha(1f)
+                .translationY(0f)
+                .setDuration(250)
+                .start();
+
+        binding.btnAddToCart.setEnabled(false);
+        binding.btnAddToCart.setAlpha(0.5f);
+    }
+
+    private void hideNetworkLostBar() {
+        if (binding == null) return;
+
+        binding.networkLostBar.animate()
+                .alpha(0f)
+                .translationY(100f)
+                .setDuration(200)
+                .withEndAction(() -> binding.networkLostBar.setVisibility(View.GONE))
+                .start();
+
+        binding.btnAddToCart.setEnabled(true);
+        binding.btnAddToCart.setAlpha(1f);
+    }
+
+    private void checkNetworkStateForButton() {
+        if (!isNetworkAvailable()) {
+            showNetworkLostBar();
+        } else {
+            hideNetworkLostBar();
+        }
+    }
     @Override
     public void onResume() {
         super.onResume();
+        checkNetworkStateForButton();
         if (getActivity() instanceof MainActivity) {
             ((MainActivity) getActivity()).hideMainNavigationUi();
         }

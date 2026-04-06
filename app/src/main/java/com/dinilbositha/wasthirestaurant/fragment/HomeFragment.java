@@ -15,12 +15,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.dinilbositha.wasthirestaurant.R;
+import com.dinilbositha.wasthirestaurant.activity.BaseActivity;
 import com.dinilbositha.wasthirestaurant.activity.MainActivity;
 import com.dinilbositha.wasthirestaurant.adapter.CategoryHomeAdapter;
 import com.dinilbositha.wasthirestaurant.adapter.HomeAdsAdapter;
 import com.dinilbositha.wasthirestaurant.adapter.ProductHomeAdapter;
 import com.dinilbositha.wasthirestaurant.databinding.FragmentHomeBinding;
 import com.dinilbositha.wasthirestaurant.model.HomeAds;
+import com.dinilbositha.wasthirestaurant.utils.NetworkUtil;
 import com.dinilbositha.wasthirestaurant.viewmodel.HomeViewModel;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
@@ -145,6 +147,13 @@ public class HomeFragment extends Fragment {
                     );
 
                     ProductHomeAdapter adapter = new ProductHomeAdapter(resource.data, product -> {
+                        if (!NetworkUtil.isNetworkAvailable(requireContext())) {
+                            if (getActivity() instanceof BaseActivity) {
+                                ((BaseActivity) getActivity()).showNoInternetLayout();
+                            }
+                            return;
+                        }
+
                         ProductDetailsFragment fragment = ProductDetailsFragment.newInstance(product.getProductId());
                         getParentFragmentManager().beginTransaction()
                                 .replace(R.id.fragemenet_container, fragment)

@@ -42,7 +42,7 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.dinilbositha.wasthirestaurant.view.LogoOverlayView
+    <com.dinilbositha.wasthirestaurant.utils.LogoOverlayView
         android:id="@+id/logoOverlay"
         android:background="@color/md_theme_background"
         android:layout_width="match_parent"

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/noInternetRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_background"
+    android:clickable="true"
+    android:focusable="true"
+    android:visibility="visible">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <ImageView
+            android:id="@+id/imgNoInternet"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/signal_disconnected"
+            app:tint="@color/red_color" />
+
+        <TextView
+            android:id="@+id/txtNoInternetTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="No Internet Connection"
+            android:textColor="@color/md_theme_onBackground"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtNoInternetDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Please check your WiFi or mobile data connection and try again."
+            android:textColor="@color/md_theme_secondary"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnRetryConnection"
+            android:layout_width="200dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/bg_button_retry"
+            android:text="Retry"
+            android:textAllCaps="false"
+            android:textColor="@color/md_theme_background"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</FrameLayout>

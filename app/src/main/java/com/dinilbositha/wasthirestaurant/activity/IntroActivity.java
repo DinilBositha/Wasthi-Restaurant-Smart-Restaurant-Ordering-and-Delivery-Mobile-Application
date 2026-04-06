@@ -31,7 +31,7 @@ public class IntroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // app eka kalin open karala intro balala thiyenawada kiyala balanna
+
         SharedPreferences preferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
         boolean isIntroSeen = preferences.getBoolean(KEY_INTRO_SEEN, false);
 

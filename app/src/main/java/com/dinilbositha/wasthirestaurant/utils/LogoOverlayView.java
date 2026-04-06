@@ -1,4 +1,4 @@
-package com.dinilbositha.wasthirestaurant.view;
+package com.dinilbositha.wasthirestaurant.utils;
 
 import android.content.Context;
 import android.util.AttributeSet;
