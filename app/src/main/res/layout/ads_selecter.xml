@@ -1,0 +1,23 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:paddingHorizontal="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerAds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+        android:id="@+id/homeAdsDot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:dotsColor="#CCCCCC"
+        android:elevation="10dp"
+        app:dotsSpacing="4dp"
+        app:selectedDotColor="@color/md_theme_error"
+        app:dotsSize="10dp"/>
+</LinearLayout>
