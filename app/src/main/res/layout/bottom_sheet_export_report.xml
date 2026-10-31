@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet_white"
+    android:orientation="vertical"
+    android:paddingStart="24dp"
+    android:paddingTop="12dp"
+    android:paddingEnd="24dp"
+    android:paddingBottom="28dp">
+
+    <!-- Drag Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/white_circle_bg"
+        android:backgroundTint="@color/md_theme_outlineVariant" />
+
+    <!-- Top Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/white_circle_bg"
+            android:backgroundTint="?attr/colorSurfaceVariant">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_pdf_export"
+                app:tint="?attr/colorPrimary" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Export PDF Statement"
+                android:textColor="@color/md_theme_onSurface"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Generate official restaurant sales report"
+                android:textColor="@color/md_theme_onSurfaceVariant"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/md_theme_outlineVariant" />
+
+    <!-- Select Period -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Report Period"
+        android:textColor="@color/md_theme_onSurface"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroupReportPeriod"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipExport7Days"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Last 7 Days"
+            android:textSize="13sp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipExport30Days"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last 30 Days"
+            android:textSize="13sp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipExportToday"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Today"
+            android:textSize="13sp" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- Info Box -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_metrics_container"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PDF Report includes:"
+            android:textColor="@color/md_theme_onSurface"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:lineSpacingExtra="2dp"
+            android:text="• Total Revenue and Order count\n• Daily transaction summary table\n• Executive performance breakdown"
+            android:textColor="@color/md_theme_onSurfaceVariant"
+            android:textSize="11.5sp" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressReportLoading"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:visibility="gone" />
+
+    <!-- Action Buttons -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGenerateAndOpen"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:text="Generate &amp; View PDF"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:cornerRadius="14dp"
+        app:icon="@drawable/ic_pdf_export"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp"
+        app:iconSize="20dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSharePdf"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="10dp"
+        android:text="Share PDF Document"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="14sp"
+        app:cornerRadius="14dp"
+        app:strokeColor="?attr/colorPrimary"
+        app:strokeWidth="1.5dp" />
+
+</LinearLayout>
